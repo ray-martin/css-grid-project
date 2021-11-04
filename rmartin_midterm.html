@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Ray Martin 07/10/21 -->
+<html lang="en">
+    <head>
+        <title>Web 122 Midterm - Ray Martin</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="full-screen">
+            <header>
+                <h1><a href="rmartin_midterm.html">CSS Grid Layout</a></h1>
+                <p>The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, 
+                    making it easier to design web pages without having to use floats and positioning. 
+                    <a href="https://www.w3schools.com/css/css_grid.asp" target="_blank">-w3schools.com</a></p>
+            </header>
+            <nav class="menu" id="main-menu">
+                <button class="menu-toggle" id="toggle-menu">Menu</button>
+                <div class="menu-dropdown">
+                <ul class="nav-menu">
+                    <li><a href="#background">Background</a></li>
+                    <li><a href="#implementation">Implementation</a></li>
+                    <li><a href="#named-method">Named Method</a></li>
+                    <li><a href="#responsive-approach">Responsive Approach</a></li>
+                    <li><a href="#sources">Sources</a></li>
+                </ul>
+                </div>
+            </nav>
+                <section id="background">
+                    <div id="background-content">
+                    <h2>Background</h2>
+                    <p>Prior to CSS web developers faced a lot of challenges when designing a layout with HTML and CSS. 
+                        Tables were used early on but are not responsive. Floats were created to allow content 
+                        to be aligned on the pages more easily. Floats have trouble with content overflowing outside 
+                        their container especially on different size viewports. Bootstrap was created to assist 
+                        with layout design and responsiveness but requires JavaScript to physically change or move 
+                        the markup. Flexbox was another solution which simplifies the alignment of items on the page, 
+                        but all these solutions are focused on the content-out rather than the layout-in. 
+                        CSS Grid, adopted by most modern browsers in 2017, is the first method which can simply move 
+                        content around different size viewports without altering the HTML markup and can construct 
+                        the content two-dimensionally.</p>
+                    <p class="next-section"><a href="#implementation">Learn How To Implement CSS Grid&#10509;</a></p>
+                </div>
+                </section>
+        </div>
+            <section id="implementation">
+                <div class="imp-content">
+                    <h2>How To Implement CSS Grid</h2>
+                    <ol>
+                        <li>Define the grid
+                            <ol type="a">
+                                <li>Apply display: grid to the container</li>
+                                <li>Define grid-template-columns</li>
+                                <li>Define grid-template-rows</li>
+                                <li>Use grid-gap property for space or gutters between cells</li>
+                                <li>Can use repeat() to define a pattern</li>
+                            </ol></li>
+                        <li>Place items in the grid by using grid-column and grid-row properties to set up areas
+                            (Note: if you don't assign them, the grid will automatically place them in the order
+                            they appear in the HTML markup)
+                        </li>
+                    </ol>
+                </div>
+                <div class="implementation-html-example">
+                    <p>&lt;style&gt;<br>
+                        .implementation-example {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display: grid;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: 1fr 1fr;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid-template-rows: repeat(2, 1fr);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid-gap: .5em;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;justify-items: center;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align-items: center;<br>
+                        }</p> 
+                    <p>#square1 {<br>
+                            grid-column: 1 / 2;<br>
+                            grid-row: 1 / 2;<br>
+                        }<br>
+                        <br>
+                        #square2 {<br>
+                            grid-column: 2 / 3;<br>
+                            grid-row: 1 / 2;<br>
+                        }<br>
+                        <br>
+                        #square3 {<br>
+                            grid-column: 1 / 2;<br>
+                            grid-row: 2 / 3;<br>
+                        }<br>
+                        <br>
+                        #square4 {<br>
+                            grid-column: 2 / 3;<br>
+                            grid-row: 2 / 3;<br>
+                        }<br>    
+                        &lt;/style&gt; 
+                    </p>
+                    <p>&lt;div class="implementation-example"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure id="square1"&gt;1&lt;/figure&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure id="square2"&gt;2&lt;/figure&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure id="square3"&gt;3&lt;/figure&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure id="square4"&gt;4&lt;/figure&gt;<br>
+                    &lt;/div&gt;</p> 
+                </div>
+                <div class="implementation-example">
+                    <figure id="imp-square1">1</figure>
+                    <figure id="imp-square2">2</figure>
+                    <figure id="imp-square3">3</figure>
+                    <figure id="imp-square4">4</figure>
+                </div>   
+                <p class="next-section--light" id="imp-next"><a href="#named-method">Learn about the Named Method&#10509;</a></p>    
+            </section>
+            <section id="named-method">
+                <div class="named-content">
+                    <h2>Named Method</h2>
+                    <P>The named method is a visual way to define your grid. Pages with a lot of content can easily 
+                        become confusing when trying to manage the rows and columns of a grid. The named method helps
+                        offer a visual representation of your grid so that it is easier to read the code.</P>
+                    <ol>
+                        <li>Use grid-template-areas in the container</li>
+                        <li>Create a template with the content area names to visually map out the layout for your grid</li>
+                        <li>Layout grid-template-columns and grid-template-rows</li>
+                        <li>Assign grid area names to the grid items with the grid-area property</li>
+                    </ol>
+                </div>
+                    <div class="named-html-example">
+                        <p>&lt;style&gt;<br>
+                        .named-example {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display: grid;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid-template-areas: "box1 box1 box1"<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"box2 box3 box4"<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"box5 box6 box6";<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: repeat(3 1fr);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid-template-rows: repeat(3, 1fr);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;justify-items: center;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding: 1em;<br>
+                        }</p>
+                        <p>#box1 {<br>
+                            grid-area: box1; /*no " */<br>
+                        }<br>
+                        <br>
+                        #box2 {<br>
+                            grid-area: box2;<br>
+                        }<br>
+                        <br>
+                        #box3 {<br>
+                            grid-area: box3;<br>
+                        }<br>
+                        <br>
+                        #box4 {<br>
+                            grid-area: box4;<br>
+                        }<br>
+                        <br>
+                        #box5 {<br>
+                            grid-area: box5;<br>
+                        }<br>
+                        <br>
+                        #box6 {<br>
+                            grid-area: box6;<br>
+                        }<br>
+                        &lt;/style&gt;</p>
+                    </div>
+                    <div class="named-example">
+                        <figure id="box1">1</figure>
+                        <figure id="box2">2</figure>
+                        <figure id="box3">3</figure>
+                        <figure id="box4">4</figure>
+                        <figure id="box5">5</figure>
+                        <figure id="box6">6</figure>
+                    </div>
+                    <p class="next-section--light" id="named-next"><a href="#responsive-approach">How to approach responsive layouts with CSS Grid&#10509;</a></p>
+            </section>
+            <section id="responsive-approach">
+                <h2>Responsive Layout Design Approach Using CSS Grid</h2>
+                <p>CSS Grid is a powerful layout solution to problems that have been vexing web developers
+                    since the beginning of the Internet. With advancements in a variety of devices such as smartphones, 
+                    tablets, small laptops like Chromebooks as well as large 4k displays it's never been more important 
+                    to have a way for content to respond to the size of the viewport that is requesting content. With the 
+                    help of CSS grid, a new workflow is needed to meet the demand of this assortment of screen sizes as well as 
+                    aging web browsers that may not support CSS grid. To meet this challenge a new workflow with a 
+                    mobile-first philosophy is highly encouraged by leaders such as <a href="https://mor10.com" target="_blank">
+                    Morten Rand-Hendriksen:</a>
+                </p>
+                <ol>
+                    <li>Build a mobile-first layout without a grid</li>
+                    <li>Use that mobile-first layout as a fallback for all browsers</li>
+                    <li>Use the @supports media query to detect grid support</li>
+                    <li>At appropriate breakpoints create a layout with grid and grid-areas</li>
+                    <li>Explore new layouts to take advantage of wider viewports as technology advances</li>
+                </ol>
+                <p>This project was designed and executed with these principles & techniques. </p>
+                <p class="next-section"><a href="#sources">Sources & Project Information&#10509;</a></p>
+            </section>
+        <footer id="sources">
+            <h3>Sources & Project Info:</h3>
+            <p>This single page website was created by <a href="mailto:rmarti98@stumail.jccc.edu">Ray Martin</a> for JCCC Web 122's midterm assignment July 2021.</p>
+            <p>The following sources were referred to for guidance and assistance:</p>
+            <ul>
+                <li><a href="https://youtu.be/7kVeCqQCxlk" target="_blank">CSS Grid Changes EVERYTHING - Morten Rand-Hendriksen</a></li>
+                <li><a href="https://www.manning.com/books/css-in-depth" target="_blank">CSS in Depth by Keith J. Grant</a></li>
+                <li><a href="https://www.w3schools.com/css/css_grid.asp" target="_blank">W3schools.com CSS Grid Layout Module</a></li>
+                <li><a href="https://www.w3schools.com/howto/howto_css_smooth_scroll.asp" target="_blank">W3schools.com How To CSS Smooth Scroll</a></li>
+                <li><a href="https://color.adobe.com/trends" target="_blank">State of Presence Color Palette from Adobe Color</a></li>
+            </ul>
+        </footer>
+        <script> // From CSS in Depth Chpt 8 for mobile dropdown menu
+            (function () {
+                var button = document.getElementById('toggle-menu');
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var menu = document.getElementById('main-menu');
+                    menu.classList.toggle('is-open');
+                })
+            })();
+        </script>
+    </body>
+</html>

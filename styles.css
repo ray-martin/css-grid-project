@@ -1,0 +1,478 @@
+:root {
+    font-size: calc(0.75em + 1vw);
+    /* Color Palette from color.adobe.com The State of Presence Report */
+    --main-blue: #0468BF;
+    --light-blue: #0477BF;
+    --dark-blue: #04588C;
+    --turquoise: #3BC9D9;
+    --orange: #F27405;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* LINKS */
+a:link {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #FFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+*, /* UNIVERSAL BORDER FIX */
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+/* CONTENT SECTIONS */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.full-screen { /* Wraps Header, Nav & Background into 100vh */
+    min-height: 100vh;
+    background-color: var(--main-blue);
+}
+
+header {
+    background-color: var(--dark-blue);
+    color: #FFF;
+    border: var(--main-blue) solid 1px;
+    padding: 2em 1em 2em 1em;
+}
+
+nav {
+    background-color: var(--orange);
+    margin: 0 0;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-toggle { /* From CSS in Depth Chpt 8 */
+    position: absolute;
+    top: -1em;
+    right: 0;
+    border: 0;
+    background-color: transparent;
+    font-size: 4rem;
+    width: 1em;
+    height: 1em;
+    line-height: 0.4;
+    text-indent: 3em;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #FFF;
+}
+
+.menu-toggle::after {
+    position:absolute;
+    top: 0.2em;
+    left: 0.2em;
+    display: block;
+    content: "\2261";
+    text-indent: 0;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0;
+}
+
+.nav-menu {
+    margin: 0;
+    padding-top: 0;
+    padding-left: 0;
+    text-indent: 1em;
+    list-style: none;
+    font-size: 1.3rem;
+    background-color: var(--orange);
+}
+
+.nav-menu > li {
+    border: 1px solid #FFF;
+    font-size: calc(1rem + 1vw);
+    padding: .5em;
+}
+
+.menu.is-open .menu-dropdown {
+    display: block;
+}
+
+.next-section {
+    text-align: right;
+}
+
+.next-section--light {
+    text-align: right;
+}
+
+.next-section--light > a:link {
+    color: #000;
+}
+
+.next-section--light > a:visited {
+    color: #000;
+}
+
+.next-section--light > a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+#background { /* SECTION 1 */
+    background-color: var(--main-blue);
+    color: #FFF;
+    padding: 1em;
+}
+
+#background-content {
+    margin: auto 0;
+}
+
+#implementation { /* SECTION 2 */
+    padding: 1em;
+    min-height: 100vh;
+}
+
+.implementation-html-example {
+    border: 1px solid #000;
+    border-radius: 1.5em;
+    background-color: var(--main-blue);
+    color: #FFF;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
+
+.implementation-example {
+    border: 1px solid #000;
+    border-radius: 1.5em;
+    background-color: var(--light-blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: .5em;
+    justify-items: center;
+    align-items: center;
+}
+
+.implementation-example > figure {
+    display: grid;
+    border: 2px solid #000;
+    background-color: var(--orange);
+    justify-items: center;
+    align-items: center;
+    width: 5em;
+    height: 5em;
+}
+
+#imp-square1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#imp-square2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#imp-square3 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3
+}
+
+#imp-square4 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+#named-method { /* SECTION 3 */
+    background-color: var(--turquoise);
+    padding: 1em;
+    min-height: 100vh;
+}
+
+.named-example {
+    display: grid;
+    grid-template-areas: "box1 box1 box1" /* " only at the beginning and end of each line */
+                         "box2 box3 box4"
+                         "box5 box6 box6";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    padding: 1em;
+    border: 1px solid #000;
+    border-radius: 1.5em;
+    background-color: var(--orange);
+}
+
+.named-html-example {
+    background-color: #FFF;
+    border: 1px solid #000;
+    border-radius: 1.5em;
+    padding: 0 1em;
+    margin-bottom: 1em;
+}
+
+.named-example > figure {
+    display: grid;
+    border: 4px solid #FFF;
+    background-color: var(--main-blue);
+    width: 100%;
+    height: 6em;
+    margin: 0;
+    justify-items: center;
+    align-items: center;
+    color: #FFF;
+}
+
+#box1 {
+    grid-area: box1; /*no "'s */
+}
+
+#box2 {
+    grid-area: box2;
+}
+
+#box3 {
+    grid-area: box3;
+}
+
+#box4 {
+    grid-area: box4;
+}
+
+#box5 {
+    grid-area: box5;
+}
+
+#box6 {
+    grid-area: box6;
+}
+
+#responsive-approach { /* SECTION 4 */
+    background-color: var(--light-blue);
+    color: #FFF;
+    padding: 1em;
+    min-height: 100vh;
+}
+
+#sources { /* COLOPHON */
+    background-color: var(--main-blue);
+    color: #FFF;
+    padding: 1em;
+}
+
+#sources li {
+    list-style-type: none;
+}
+
+/* FIRST BREAKPOINT */
+@media (min-width: 45em) {
+    header {
+        padding: 1em 5%;
+    }
+
+    .menu {
+        margin: auto 0;
+    }
+
+    .menu-toggle {
+        display: none; /*Hides menu toggle*/
+    }
+
+    .menu-dropdown {
+        display: block; /*Overrides absolute positioning*/
+        position: static;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding: 1em;
+    }
+
+    .nav-menu > li {
+        border: 0;
+        font-size: 0.85rem;
+        padding: 0;
+    }
+
+    #background {
+        padding: 1em 5%;
+    }
+
+    #background-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .imp-content {
+        grid-area: imp-content;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .implementation-html-example {
+        grid-area: imp-ex1;
+        max-width: 60%;
+        margin-bottom: 0;
+    }
+
+    .implementation-example {
+        grid-area: imp-ex2;
+    }
+
+    #imp-next {
+        grid-area: imp-next;
+    }
+
+    #named-method {
+        padding: 1em 5%;
+    }
+
+    #responsive-approach {
+        padding: 1em 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #sources {
+        padding: 1em 5%;
+    }
+
+    @supports (display: grid) { /* Allows Mobile Layout as a Fallback for older browsers */
+        #implementation {
+            padding: 1em 5%;
+            display: grid;
+            grid-template-areas: "imp-content imp-ex2"
+                                 "imp-ex1 imp-ex1"
+                                 "imp-next imp-next";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            grid-gap: 1em;
+            align-content: center;
+        }
+
+        .implementation-html-example {
+            max-width: 100%;
+            justify-self: center;
+        }
+
+        #named-method {
+            display: grid;
+            grid-template-areas: "name-text name-ex"
+                                 "name-css name-css"
+                                "name-next name-next";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            grid-gap: 2em;
+        }
+
+        .named-content {
+            grid-area: name-text;
+        }
+
+        .named-html-example {
+            grid-area: name-css;
+            max-width: 70%;
+            margin-bottom: 0;
+            justify-self: center;
+        }
+
+        .named-example {
+            grid-area: name-ex;
+            align-items: center;
+        }
+
+        .named-example > figure {
+            height: 100%;
+        }
+
+        #named-next {
+            grid-area: name-next;
+        }
+    }
+}
+
+/* SECOND BREAKPOINT */
+@media (min-width: 70em) {
+    :root {
+        font-size: 1.25em;
+    }
+
+    .nav-menu > li {
+        font-size: 1rem;
+    }
+
+
+    @supports (display: grid) {
+        #implementation {
+            grid-template-areas: "imp-ex1 imp-content"
+                                 "imp-ex1 imp-ex2"
+                                 "imp-next imp-next";
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto auto;
+            grid-gap: 2em;
+            align-content: center;
+        }
+
+        .imp-content {
+            justify-content: center;
+            align-content: center;
+            padding: 0 5%;
+        }
+    }
+
+    #named-method {
+        padding: 1em 10%;
+    }
+
+    @supports (display: grid) {
+        #named-method {
+            display: grid;
+            grid-template-areas: "name-text name-css"
+                                 "name-ex name-css"
+                                "name-next name-next";
+            grid-template-columns: 55% 45%;
+            grid-template-rows: auto auto;
+        }
+
+        .named-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .named-html-example {
+            max-width: 100%;
+        }
+    }
+
+    #background-content {
+        padding: 1em 10%;
+    }
+
+    #responsive-approach {
+        padding: 1em 10%;
+    }
+}
